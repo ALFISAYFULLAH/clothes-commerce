@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Home() {
     return (
         <section className="mb-28 relative">
-            <nav className="absolute px-4 h-16 w-full flex items-center justify-between">
+            <nav className="absolute top-[5vh] px-4 h-16 w-full flex items-center justify-between">
                 <input className="w-8/12 h-12 px-4" placeholder="search" type="text" />
                 <div className="w-12 h-12 bg-white"></div>
                 <div className="w-12 h-12 bg-white"></div>
@@ -34,7 +34,7 @@ export default function Home() {
 
             <div className="px-[5%] mt-8">
                 <h1 className="font-poppins uppercase font-bold text-[100%]">rekomendasi</h1>
-                <div className="flex flex-wrap gap-y-4 gap-x-2 justify-between">
+                <div className="flex flex-wrap gap-x-2 justify-evenly">
                     <Card />
                 </div>
             </div>

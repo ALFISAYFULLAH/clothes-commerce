@@ -4,11 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities{
-   div {
-      @apply border border-slate-500 rounded-xl
-   }
-}
+
+@layer utilities {
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+      .no-scrollbar {
+          -ms-overflow-style: none;  
+          scrollbar-width: none; 
+    }
+  }
 
 .dots {
    width: 4.5px;
