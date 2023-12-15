@@ -1,54 +1,59 @@
 import Card from "@/components/Card";
 import Image from "next/image";
 
+const categories = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
+export default async function Home() {
+    const response = await fetch("https://api.escuelajs.co/api/v1/products");
+    const data = await response.json();
+    const listProdct = data
 
-export default function Home() {
     return (
-        <section className="mb-28 relative">
-            <nav className="absolute top-[5vh] px-4 h-16 w-full flex items-center justify-between">
-                <input className="w-8/12 h-12 px-4" placeholder="search" type="text" />
-                <div className="w-12 h-12 bg-white"></div>
-                <div className="w-12 h-12 bg-white"></div>
+        <section className="max-w-3xl w-full">
+            <nav className="fixed top-0 z-10 bg-white shadow-md max-w-3xl w-full flex justify-center">
+                <div className="px-[5%] w-full h-14 flex-between">
+                    <div className="w-14 h-full flex-center">
+                        <svg className="rotate-90 mt-4 w-20 fill-slate-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M3 16h2v5H3zm4-3h2v8H7zm4-3h2v11h-2z"></path>
+                        </svg>
+                    </div>
+                    <h1 className="uppercase font-serif font-semibold text-2xl">issacs</h1>
+                    <div className="w-14 h-full flex-center">
+                        <svg className="w-12 fill-slate-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6z"></path>
+                            <circle cx="10.5" cy="19.5" r="1.5"></circle>
+                            <circle cx="17.5" cy="19.5" r="1.5"></circle>
+                        </svg>
+                    </div>
+                </div>
             </nav>
 
-            <div className="h-64 bg-green-500"></div>
+            <form className="pt-24 px-[5%]">
+                <input className="px-[5%] py-4 shadow-lg w-full rounded-xl focus:outline-none" type="text" placeholder="search" />
+            </form>
 
-            <div className="bg-white max-w-[300px] h-20 -mt-10 mx-auto relative z-10"></div>
-
-            <div className="relative z-0 -mt-10 pt-14 pb-6 gap-6 bg-green-500">
-                <div className="flex gap-6 justify-center">
-                    <div className="w-12 h-12 bg-white"></div>
-                    <div className="w-12 h-12 bg-white"></div>
-                    <div className="w-12 h-12 bg-white"></div>
-                    <div className="w-12 h-12 bg-white"></div>
-                    <div className="w-12 h-12 bg-white"></div>
-                </div>
-                <div className="flex justify-between h-24 px-2 mt-8">
-                    <div className="w-60 h-full bg-blue-600"></div>
-                    <div className="w-28 h-full bg-blue-600"></div>
+            <div className="pt-8 pl-[5%]">
+                <div className="overflow-x-scroll">
+                    <div className="flex w-fit gap-4">
+                        {categories.map((item) => (
+                            <div key={item} className="flex-center flex-col">
+                                <div className="w-16 h-16 border-2 shadow-1 border-slate-300 rounded-full overflow-hidden">
+                                    <Image src={`https://source.unsplash.com/random/${item}`} width={40} height={40} alt="" />
+                                </div>
+                                <h2>{item}</h2>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
-            <div className="my-8 ml-4 h-40"></div>
+            <main className="pt-8 px-[5%]">
+                <h1 className="font-serif font-semibold text-xl capitalize">new arivals</h1>
 
-            <div className="px-[5%] mt-8">
-                <h1 className="font-poppins uppercase font-bold text-[100%]">rekomendasi</h1>
-                <div className="flex flex-wrap gap-x-2 justify-evenly">
-                    <Card />
+                <div className="columns-2 gap-3 space-y-3">
+                    <Card listProduct={listProdct} />
                 </div>
-            </div>
-
-            <div className="dots mx-auto mt-8"></div>
-
-            <nav className="fixed bottom-4 flex justify-center w-full h-14">
-                <div className="flex justify-evenly max-w-[350px] w-full bg-green-600 rounded-full">
-                    <div className="w-14 h-14 bg-green-500"></div>
-                    <div className="w-14 h-14 bg-green-500"></div>
-                    <div className="w-14 h-14 bg-green-500"></div>
-                    <div className="w-14 h-14 bg-green-500"></div>
-                </div>
-            </nav>
+            </main>
         </section>
     );
 }

@@ -5,6 +5,18 @@ const nextConfig = {
             {
                 hostname: "source.unsplash.com",
             },
+            {
+                hostname: "i.imgur.com",
+            },
+            {
+                hostname: "upload.wikimedia.org",
+            },
+            {
+                hostname: "placeimg.com",
+            },
+            {
+                hostname: "images.unsplash.com",
+            },
         ],
     },
 };
