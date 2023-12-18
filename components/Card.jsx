@@ -7,9 +7,9 @@ export default function Card({listProduct}) {
     return (
         <>
             {listProduct.map((item) => (
-                <div key={item.id}>
+                <div className="shadow-md" key={item.id}>
                     <Link href={`/product/${item.id}`}>
-                        <Image src={item.images[0]} width={400} height={600} alt={item.title} />
+                        <Image className="w-full h-full object-contain scale-75" src={item.image} width={400} height={600} alt={item.title} />
                     </Link>
                 </div>
             ))}

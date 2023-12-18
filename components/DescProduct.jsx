@@ -9,7 +9,7 @@ export default function DescProduct({ desc }) {
     } else {
         return (
             <>
-                <p className="text-sm tracking-tight transition-all duration-700 text-primary">
+                <p className="text-sm tracking-tight transition-all duration-700 text-primary mt-4">
                     {desc.substring(0, descLength)}
                     <span className="text-primary font-semibold" onClick={() => setLength(descLength === 100 ? desc.length : 100)}>
                         {descLength === 100 ? "  More..." : "  Lebih sedikit"}
